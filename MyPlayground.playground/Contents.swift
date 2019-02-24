@@ -114,3 +114,36 @@ enum Optional2<T> {
     case none
     case some(data: T)
 }
+
+
+let pizzaJoint = "café pesto"
+
+let firstCharacterIndex = pizzaJoint.startIndex
+let fourthCharacterIndex = pizzaJoint.index(firstCharacterIndex, offsetBy: 3)
+
+print(pizzaJoint[fourthCharacterIndex])
+if let firstSpace = pizzaJoint.index(of: " ") {
+    let secondWordIndex = pizzaJoint.index(firstSpace, offsetBy: 1)
+    print(pizzaJoint[secondWordIndex..<pizzaJoint.endIndex])
+}
+
+print(pizzaJoint.components(separatedBy: " ")[1])
+let arr = Array(pizzaJoint)
+for c in arr.indices {
+    print("\(c) \(arr[c])")
+}
+
+
+var operation = {(operand: Double) -> Double in return -operand}
+var operation2: (Double) -> Double = {(operand: Double) in return -operand}
+var operation3: (Double) -> Double = {(operand) in return -operand}
+var operation4: (Double) -> Double = {(operand) in -operand}
+var operation5: (Double) -> Double = { -$0 }
+print(operation(5))
+
+
+var propertyWithTooMuchReturn = {
+    1 + 2 + 3 + 4 + 5
+}()
+
+print(propertyWithTooMuchReturn)
